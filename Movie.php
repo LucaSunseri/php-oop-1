@@ -16,11 +16,26 @@ class Movie
 
     public function getEditOverview()
     {
-        return substr($this->overview, 0, 200) . "...";
+        return substr($this->overview, 0, 150) . "...";
     }
 
     public function getFormatDate()
     {
         return date("m-d-Y", strtotime($this->release_date));
+    }
+
+    public function getFormatVote()
+    {
+        $vote = "&#128525;";
+
+        if ($this->vote_average <= 4) {
+            $vote = "&#9785;";
+        } elseif ($this->vote_average <= 6) {
+            $vote = "&#128578;";
+        } elseif ($this->vote_average <= 8) {
+            $vote = "&#128522;";
+        }
+
+        return $vote;
     }
 }
