@@ -21,7 +21,7 @@ class Movie
 
     public function getFormatDate()
     {
-        return date("m-d-Y", strtotime($this->release_date));
+        return date("d-m-Y", strtotime($this->release_date));
     }
 
     public function getFormatVote()
